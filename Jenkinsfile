@@ -21,7 +21,7 @@ pipeline {
         }
         stage ('Login stage') {
             steps {
-                sh "echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin"
+                sh "echo @Beast00036@ | docker login -u velumalai36 --password-stdin"
                 sh 'echo Logged in successfully'
             }
         }
