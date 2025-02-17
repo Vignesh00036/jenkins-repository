@@ -20,7 +20,6 @@ pipeline {
         stage ('Login stage') {
             steps {
                 sh "echo ${docker_PSW} | docker login -u ${docker_USR} --password-stdin"
-                sh 'echo Logged in successfully'
             }
         }
         stage ('Uploading stage') {
