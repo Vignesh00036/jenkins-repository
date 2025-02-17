@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment={
+        DOCKER_USERNAME=Credentials('Docker-username')
+        DOCKER_PASSWORD=Credentials('Docker-password')
+    }
     stages {
         stage ('Verifing docker stage') {
             steps {
@@ -15,9 +19,14 @@ pipeline {
                 }
             }
         }
+        stage ('Login stage') {
+            steps {
+                sh "echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin"
+                sh 'echo Logged in successfully'
+            }
+        }
         stage ('Uploading stage') {
             steps {
-                sh 'docker login'
                 sh "docker push velumalai36/custom-nginx:${BUILD_ID}"                
             }
         }
