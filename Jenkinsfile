@@ -9,7 +9,6 @@ pipeline {
         stage ('Building stage') {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
-                    sh 'docker ps'
                     sh "docker build -t velumalai36/custom-nginx:${BUILD_ID} ."
                     sh 'docker images'
                 }
