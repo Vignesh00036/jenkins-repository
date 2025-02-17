@@ -7,10 +7,12 @@ pipeline {
             }
         }
         stage ('Building stage') {
-            steps {
-                sh 'docker ps'
-                sh 'docker build -t velumalai36/custom-nginx:1.0 .'
-                sh 'docker images'
+            timeout(time: 1, unit: 'HOURS') {
+                steps {
+                    sh 'docker ps'
+                    sh 'docker build -t velumalai36/custom-nginx:1.0 .'
+                    sh 'docker images'
+                }
             }
         }
     }
