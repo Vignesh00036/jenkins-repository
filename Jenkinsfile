@@ -10,7 +10,7 @@ pipeline {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
                     sh 'docker ps'
-                    sh 'docker build -t velumalai36/custom-nginx:1.0 .'
+                    sh "docker build -t velumalai36/custom-nginx:${BUILD_ID} ."
                     sh 'docker images'
                 }
             }
