@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        DOCKER_USERNAME=Credentials('Docker-username')
-        DOCKER_PASSWORD=Credentials('Docker-password')
+        DOCKER_USERNAME=credentials('Docker-username')
+        DOCKER_PASSWORD=credentials('Docker-password')
     }
     stages {
         stage ('Verifing docker stage') {
