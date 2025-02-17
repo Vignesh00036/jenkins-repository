@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        docker=credentials('Docker-Credentials')
+    }
     stages {
         stage ('Verifing docker stage') {
             steps {
@@ -16,7 +19,7 @@ pipeline {
         }
         stage ('Login stage') {
             steps {
-                sh "echo @Beast00036@ | docker login -u velumalai36 --password-stdin"
+                sh "echo ${docker_PSW} | docker login -u ${docker_USR} --password-stdin"
                 sh 'echo Logged in successfully'
             }
         }
