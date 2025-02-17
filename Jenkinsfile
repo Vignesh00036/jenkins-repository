@@ -6,5 +6,12 @@ pipeline {
                 sh "docker --version"
             }
         }
+        stage ('Building stage') {
+            steps {
+                sh 'docker ps'
+                sh 'docker build -t velumalai36/custom-nginx:1.0 .'
+                sh 'docker images'
+            }
+        }
     }
 }
