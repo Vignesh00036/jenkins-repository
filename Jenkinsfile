@@ -15,5 +15,11 @@ pipeline {
                 }
             }
         }
+        stage ('Uploading stage') {
+            steps {
+                sh 'docker login'
+                sh "docker push velumalai36/custom-nginx:${BUILD_ID}"                
+            }
+        }
     }
 }
