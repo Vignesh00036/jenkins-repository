@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    environment={
+    environment {
         DOCKER_USERNAME=Credentials('Docker-username')
         DOCKER_PASSWORD=Credentials('Docker-password')
     }
