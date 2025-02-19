@@ -11,7 +11,7 @@ pipeline {
         }
         stage ('Building stage') {
             steps {
-                sh "docker build -t velumalai36/custom-nginx:${BUILD_ID} ."
+                sh "docker build -t ${docker_USR}/custom-nginx:${BUILD_ID} ."
                 sh 'docker images'
             }
         }
